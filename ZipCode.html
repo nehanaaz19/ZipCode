@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather Information</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<style type="text/css">
+	    body{
+	    	background-color:pink;
+	    }
+	     
+		div{
+			text-align: center;
+			margin-top: 5%;
+		}
+		img {
+    display: block;
+    margin: auto;
+}
+		footer { 
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          padding: 1rem;
+          background-color: #efefef;
+          text-align: center;
+   
+}
+	
+	</style>
+	<body>
+<div class="class1" >
+
+<h1> Current Weather Information</h1>
+<div>
+<form>
+	<label for="name">Zipcode :</label>
+      
+
+	    <input type="number" id="in1"  name="name" pattern= "[0-9]{5}" placeholder="Enter the zip code" required/>
+</form>
+<br>
+		<button id ="btn" onclick="myFunction()">Get Weather </button>
+</div>
+					
+<div>
+    <p id="disp">  <span class="push"> </span> </p>
+   <p class="disp2"></p>
+</div>
+</div>
+	<img src="/Users/Sheeba/Picture1.jpg" alt="Weather View" style="width:304px;height:228px;">
+	<script type="text/javascript">
+		function myFunction(){
+		var btn=document.getElementById("btn");
+	
+
+var in1=document.getElementById("in1");
+
+ var push=document.querySelector(".push");
+
+
+	push.classList.add("push");
+
+var disp=document.getElementById("disp");
+
+ var disp2=document.querySelector(".disp2");
+
+var request=new XMLHttpRequest();
+
+btn.addEventListener("click",function(){
+
+var zip=in1.value;
+
+var link="http://api.openweathermap.org/data/2.5/weather?zip="+zip+"&units=metric&APPID=4ed1829acc1c5647a9b9f967b03d37d8"
+
+request.open("GET",link);
+
+request.onload=function(){
+
+
+		var data=JSON.parse(request.responseText);
+        disp.textContent=data.main.temp+push.textContent;
+        disp2.textContent=data.name;
+
+
+		push.classList.remove("push");
+}
+
+	request.send();
+
+});
+}
+
+	</script>
+<footer>
+  <p>Posted by: Neha Naaz</p>
+  <p>Contact information: <a href="mailto:someone@example.com">
+  someone@example.com</a>.</p>
+</footer>
+</body>
+</html>
