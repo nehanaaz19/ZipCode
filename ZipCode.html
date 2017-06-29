@@ -53,14 +53,10 @@
 	<script type="text/javascript">
 		function myFunction(){
 		var btn=document.getElementById("btn");
-	
-
-var in1=document.getElementById("in1");
+	        var in1=document.getElementById("in1");
 
  var push=document.querySelector(".push");
-
-
-	push.classList.add("push");
+push.classList.add("push");
 
 var disp=document.getElementById("disp");
 
@@ -70,9 +66,9 @@ var request=new XMLHttpRequest();
 
 btn.addEventListener("click",function(){
 
-var zip=in1.value;
+                    var zip=in1.value;
 
-var link="http://api.openweathermap.org/data/2.5/weather?zip="+zip+"&units=metric&APPID=4ed1829acc1c5647a9b9f967b03d37d8"
+                   var link="http://api.openweathermap.org/data/2.5/weather?zip="+zip+"&units=metric&APPID=4ed1829acc1c5647a9b9f967b03d37d8"
 
 request.open("GET",link);
 
